@@ -1,0 +1,56 @@
+// Refresh when Save Button is Pressed:
+
+$(document).ready(function()
+
+{
+   function clickHandler(){  // Go into this function when the EDIT button is clicked.
+     setTimeout(  // Pause the function to give the SAVE button time to be accesible.
+       function user_check()  // Find out which user is clicking the SAVE button.
+       {
+         try  // Try to get the SAVE button and execute the event.
+         {
+           var save_button = document.getElementById('edit-submit--4');  // Try to get the secretaries SAVE button.
+           save_button.addEventListener('click', clickhandler_2);  // Attempt to call the event, if it isn't the secretaries SAVE button then it will throw an error.
+         }
+         catch(err) // If the try threw an error then do this:
+         {
+           save_button = document.getElementById('edit-submit--3');  // Get the faculty SAVE button.
+           save_button.addEventListener('click', clickhandler_2);  // When the SAVE button is pushed move into the clickHandler_2 function below.
+         }
+
+       }
+         , 1000);  // Make the pause last 1 second && end the pause.
+   }
+   function clickhandler_2(){  // Go into this function when the SAVE button is clicked.
+     setTimeout(  // Pause the function to give the page time to save the input before refreshing.
+       function refresh_page()
+        {
+          window.location.reload();  // Refresh the page.
+        }
+     , 1000);  // Make the pause last 1 second && end the pause.
+   }
+   var edit_button = document.getElementById('edit-edit');  // Get the EDIT button.
+   edit_button.addEventListener('click', clickHandler);  // When the EDIT button is clicked move into the clickHandler function above ^^.
+}
+)
+
+
+// Refresh When Account Type is Changed:
+
+$(document).ready(function()
+{
+  function clickHandler()  // Go into this function when the DROP DOWN menu is changed.
+  {
+    setTimeout(  // Pause the function to give the page time to save the input before refreshing.
+      function test()
+      {
+        window.location.reload();  // Refresh the page.
+      }
+        , 500);  // Make the pause last 1/2 a second && end the pause.
+  }
+
+var element = document.getElementById('edit-field-select-account-und');  // Get the account drop down menu.
+
+element.addEventListener("change", clickHandler);  // When the DROP DOWN menu is changed move into the clickHandler function above ^^.
+}
+)
